@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataCard-Enhanced User Profile</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="title">User Profile Manager <i class="fas fa-user-edit"></i></h1>
+
+        <form id="userForm" class="form-animation">
+            <div class="form-grid">
+                <div class="input-group">
+                    <label for="firstName"><i class="fas fa-user"></i> First Name:</label>
+                    <input type="text" id="firstName" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="lastName"><i class="fas fa-user-tag"></i> Last Name:</label>
+                    <input type="text" id="lastName" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="country"><i class="fas fa-globe"></i> Country:</label>
+                    <select id="country" required>
+                        <option value="">Select Country</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+                    <input type="tel" id="phone" pattern="[0-9]{10}" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="state"><i class="fas fa-map-marked"></i> State:</label>
+                    <input type="text" id="state" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="city"><i class="fas fa-city"></i> City:</label>
+                    <input type="text" id="city" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="pin"><i class="fas fa-lock"></i> PIN:</label>
+                    <input type="number" id="pin" min="100000" max="999999" required>
+                </div>
+            </div>
+
+            <button type="submit" class="submit-btn">
+                <i class="fas fa-save"></i> Save Profile
+            </button>
+        </form>
+
+        <div id="card" class="card hidden">
+            <div class="card-header">
+                <h2>User Profile <i class="fas fa-id-card"></i></h2>
+                <button class="edit-btn" onclick="enableEditing()"><i class="fas fa-edit"></i> Edit Profile</button>
+            </div>
+            <div class="card-content">
+                <p><strong>Name:</strong> <span id="cardName"></span></p>
+                <p><strong>Email:</strong> <span id="cardEmail"></span></p>
+                <p><strong>Phone:</strong> <span id="cardPhone"></span></p>
+                <p><strong>Location:</strong> <span id="cardLocation"></span></p>
+                <p><strong>PIN:</strong> <span id="cardPin"></span></p>
+            </div>
+        </div>
+
+        <div class="theme-selector">
+            <button class="theme-btn gradient-btn" data-theme="gradient">Gradient</button>
+            <button class="theme-btn light-btn" data-theme="light">Light</button>
+            <button class="theme-btn dark-btn" data-theme="dark">Dark</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

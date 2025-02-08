@@ -1,0 +1,194 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #50e3c2;
+    --text-color: #333;
+    --bg-color: #f5f7fa;
+    --card-bg: white;
+    --transition: all 0.3s ease;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: var(--transition);
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 15px;
+    background: var(--card-bg);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 2.5em;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: transform 0.2s;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.card {
+    margin-top: 2rem;
+    padding: 2rem;
+    border-radius: 12px;
+    background: var(--card-bg);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: cardEntry 0.5s forwards;
+}
+
+@keyframes cardEntry {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.edit-btn {
+    background: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.theme-selector {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+    justify-content: center;
+}
+
+.theme-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.gradient-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+.light-btn {
+    background: #f0f0f0;
+    color: #333;
+}
+
+.dark-btn {
+    background: #333;
+    color: white;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    --bg-color: #1a1a1a;
+    --text-color: #fff;
+    --card-bg: #2d2d2d;
+}
+
+/* Gradient Theme */
+body.gradient-theme {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    --card-bg: rgba(255, 255, 255, 0.95);
+    --text-color: #333;
+}
+
+/* Form Animation */
+.form-animation {
+    animation: formSlide 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@keyframes formSlide {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Add transition for smooth visibility changes */
+#userForm,
+#card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+    opacity: 0;
+    transform: translateY(20px);
+}
